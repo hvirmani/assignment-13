@@ -106,9 +106,6 @@ class TextInput extends React.Component {
 }
 
 class Button extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <button className="btn btn-info" onClick={this.props.onClick}>
@@ -119,24 +116,21 @@ class Button extends React.Component {
 }
 
 class Display extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    let a = this.props.bmi;
-    if (!a || isNaN(a)) {
-      a = "N/A";
+    let bmiValue = this.props.bmi;
+    if (!bmiValue || isNaN(bmiValue)) {
+      bmiValue = "N/A";
     } else {
-      a = a.toFixed(2);
+      bmiValue = bmiValue.toFixed(2);
     }
-    let b = this.props.bmiClass;
-    if (!b) {
-      b = "N/A";
+    let bmiClass = this.props.bmiClass;
+    if (!bmiClass) {
+      bmiClass = "N/A";
     }
     return (
       <div>
-        <h3 id="bmi">BMI = {a}</h3>
-        <h3 id="bmi-class">BMI Class = {b}</h3>
+        <h3 id="bmi">BMI = {bmiValue}</h3>
+        <h3 id="bmi-class">BMI Class = {bmiClass}</h3>
       </div>
     );
   }
